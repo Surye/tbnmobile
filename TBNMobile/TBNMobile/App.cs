@@ -11,19 +11,11 @@ namespace TBNMobile
 	{
 		public App ()
 		{
-			// The root page of your application
-			MainPage = new ContentPage {
-				Content = new StackLayout {
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							HorizontalTextAlignment = TextAlignment.Center,
-							Text = "Welcome to Xamarin Forms!"
-						}
-					}
-				}
-			};
-		}
+            var mainPage = new UserInterface.MasterDetail();
+            //var mainPage = new UserInterface.LiveStreamPage();
+            // The root page of your application
+            MainPage = mainPage;
+        }
 
 		protected override void OnStart ()
 		{

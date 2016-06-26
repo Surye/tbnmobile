@@ -17,7 +17,12 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TBNMobile", "TBNMobile\TBNM
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		TBNMobile\TBNMobile\TBNMobile.projitems*{c353234a-6a8a-43f0-a9a2-5d710f7b739a}*SharedItemsImports = 4
+		TBNMobile\TBNMobile\TBNMobile.projitems*{b099cee6-1f34-45a8-b42d-520ff46d1bf1}*SharedItemsImports = 4
 		TBNMobile\TBNMobile\TBNMobile.projitems*{7c721908-1099-4b15-9db6-78692cea26ab}*SharedItemsImports = 13
+		TBNMobile\TBNMobile\TBNMobile.projitems*{15413769-b98e-4a4b-854a-8e0fd5bd4494}*SharedItemsImports = 4
+		TBNMobile\TBNMobile\TBNMobile.projitems*{69d67fe1-b54d-4ae6-a6ae-8c790748b7e2}*SharedItemsImports = 4
+		TBNMobile\TBNMobile\TBNMobile.projitems*{0f9003bd-b4ec-44e0-8c90-e1762afef270}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
