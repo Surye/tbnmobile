@@ -12,23 +12,26 @@ namespace TBNMobile.UserInterface
 	{
         public string TBNLiveStream { get { return "http://ice5.securenetsystems.net/THEBN";  } }
 
+
         public string MainText
         {
             get { return "Live Stream here"; }
         }
+        public IAudioPlayer AudioPlayer { get; private set; }
 
         public LiveStreamPage ()
 		{
 			InitializeComponent ();
             BindingContext = this;
+            AudioPlayer = DependencyService.Get<IAudioPlayer>();
+            AudioPlayer.Init();
 
             btnStartStreaming.Clicked += BtnStartStreaming_Clicked;
-
         }
 
         private void BtnStartStreaming_Clicked(object sender, EventArgs e)
         {
-            var audioPlayer = DependencyService.Get<IAudioPlayer>();
+            AudioPlayer.PlayStreamingAudio(TBNLiveStream);
         }
     }
 }

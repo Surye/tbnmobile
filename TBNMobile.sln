@@ -15,6 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TBNMobile.Windows", "TBNMob
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TBNMobile", "TBNMobile\TBNMobile\TBNMobile.shproj", "{7C721908-1099-4B15-9DB6-78692CEA26AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6C9D8916-4EB7-4A64-AE46-1499118E11C1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		TBNMobile\TBNMobile\TBNMobile.projitems*{c353234a-6a8a-43f0-a9a2-5d710f7b739a}*SharedItemsImports = 4

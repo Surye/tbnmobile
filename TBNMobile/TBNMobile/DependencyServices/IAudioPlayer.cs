@@ -6,7 +6,9 @@ namespace TBNMobile.DependencyServices
 {
     public interface IAudioPlayer
     {
+        void Init();
         void PlayStreamingAudio(string URL);
+        void PauseStreamingAudio();
         void StopStreamingAudio();
     }
 }
