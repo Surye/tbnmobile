@@ -2,12 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TBNMobile.UserInterface.MasterPage"
-             Title="The Brewing Network">
+             Title="The Brewing Network"
+             Icon="hamburger.png">
   <ContentPage.Content>
-    <StackLayout VerticalOptions="FillAndExpand">
-      <ListView x:Name="listView" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
+    <StackLayout VerticalOptions="Fill">
+      <Label Text="{Binding MainMenuHeader}" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+      <ListView x:Name="mainMenu" VerticalOptions="Fill" SeparatorVisibility="None">
         <ListView.ItemTemplate>
           <DataTemplate> 
+            <ImageCell Text="{Binding Title}" ImageSource="{Binding IconSource}" />
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <Label Text="{Binding SocialMediaHeader}" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+      <ListView x:Name="socialMediaMenu" VerticalOptions="Fill" SeparatorVisibility="None" >
+        <ListView.ItemTemplate>
+          <DataTemplate>
             <ImageCell Text="{Binding Title}" ImageSource="{Binding IconSource}" />
           </DataTemplate>
         </ListView.ItemTemplate>

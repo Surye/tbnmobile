@@ -10,23 +10,27 @@ namespace TBNMobile.UserInterface
 {
 	public partial class MasterPage : ContentPage
 	{
-        public ListView ListView { get { return listView; } }
+        public string SocialMediaHeader { get { return "Join us on the web!"; } }
+        public string MainMenuHeader { get { return "The Brewing Network"; } }
+
+        public ListView MainMenu { get { return mainMenu; } }
 
         public MasterPage ()
 		{
 			InitializeComponent ();
+            BindingContext = this;
 
             var masterPageItems = new List<MasterPageItem>();
             masterPageItems.Add(new MasterPageItem
             {
                 Title = "Live Stream",
-                IconSource = "settings.png",
+                IconSource = "live.png",
                 TargetType = typeof(LiveStreamPage)
             });
             masterPageItems.Add(new MasterPageItem
             {
                 Title = "Show Archive",
-                IconSource = "settings.png",
+                IconSource = "archive.png",
                 TargetType = typeof(ShowArchivePage)
             });
             masterPageItems.Add(new MasterPageItem
@@ -36,7 +40,34 @@ namespace TBNMobile.UserInterface
                 TargetType = typeof(SettingsPage)
             });
 
-            listView.ItemsSource = masterPageItems;
+            mainMenu.ItemsSource = masterPageItems;
+
+            var socialMediaItems = new List<SocialMediaItem>();
+            socialMediaItems.Add(new SocialMediaItem
+            {
+                Title = "The Forums",
+                IconSource = "archive.png",
+                URL = "http://www.thebrewingnetwork.com/forum/"
+            });
+            socialMediaItems.Add(new SocialMediaItem
+            {
+                Title = "Facebook",
+                IconSource = "archive.png",
+                URL = "https://www.facebook.com/brewingnetwork/"
+            });
+            socialMediaItems.Add(new SocialMediaItem
+            {
+                Title = "Twitter",
+                IconSource = "archive.png",
+                URL = "https://twitter.com/brewingnetwork"
+            });
+            socialMediaItems.Add(new SocialMediaItem
+            {
+                Title = "Instagram",
+                IconSource = "archive.png",
+                URL = "https://www.instagram.com/brewingnetwork/"
+            });
+            socialMediaMenu.ItemsSource = socialMediaItems;
 
         }
     }

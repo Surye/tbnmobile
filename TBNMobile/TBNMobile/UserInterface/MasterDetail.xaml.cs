@@ -13,8 +13,7 @@ namespace TBNMobile.UserInterface
 		public MasterDetail()
         {
             InitializeComponent();
-            Detail = new NavigationPage(new LiveStreamPage());
-            masterPage.ListView.ItemSelected += OnItemSelected;
+            masterPage.MainMenu.ItemSelected += OnItemSelected;
         }
 
 
@@ -24,7 +23,7 @@ namespace TBNMobile.UserInterface
             if (item != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
-                masterPage.ListView.SelectedItem = null;
+                masterPage.MainMenu.SelectedItem = null;
                 IsPresented = false;
             }
         }
