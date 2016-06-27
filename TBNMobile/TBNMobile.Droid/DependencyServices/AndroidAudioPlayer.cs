@@ -15,6 +15,7 @@ using TBNMobile.Droid.DependencyServices;
 using Android.Media;
 using Android.Net.Wifi;
 using Android.Net;
+using Java.Util.Logging;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AndroidAudioPlayer))]
 namespace TBNMobile.Droid.DependencyServices
@@ -28,7 +29,10 @@ namespace TBNMobile.Droid.DependencyServices
         public const string ActionPlay = "net.datamachine.surye.tbnmobile.action.PLAY";
         public const string ActionPause = "net.datamachine.surye.tbnmobile.PAUSE";
         public const string ActionStop = "net.datamachine.surye.tbnmobile.STOP";
-        
+
+        // Live Stream URL
+        public const string TBNLiveStream = "http://ice5.securenetsystems.net/THEBN";
+
 
         private MediaPlayer player;
         private AudioManager audioManager;
@@ -37,10 +41,7 @@ namespace TBNMobile.Droid.DependencyServices
         private bool paused;
 
         private const int NotificationId = 1;
-
-        public string DataSource { get; set; }
         
-
         /// <summary>
         /// On create simply detect some of our managers
         /// </summary>
@@ -114,18 +115,19 @@ namespace TBNMobile.Droid.DependencyServices
 
 
             // Instantiate the builder and set notification elements:
-            Notification.Builder builder = new Notification.Builder(this)
+            var builder = new Notification.Builder(this)
                 .SetContentTitle("The Brewing Network")
                 .SetContentText("Live stream started!")
                 .SetSmallIcon(Resource.Drawable.hopgrenade);
 
             // Build the notification:
-            Notification notification = builder.Build();
+            var notification = builder.Build();
 
             // Get the notification manager:
-            NotificationManager notificationManager =
+            var notificationManager =
                 GetSystemService(Context.NotificationService) as NotificationManager;
-            
+
+            notificationManager?.Notify(NotificationId, notification);
             StartForeground(NotificationId, notification);
         }
 
@@ -151,8 +153,8 @@ namespace TBNMobile.Droid.DependencyServices
 
             try
             {
-                await player.SetDataSourceAsync(ApplicationContext, Android.Net.Uri.Parse(DataSource));
-
+                await player.SetDataSourceAsync(ApplicationContext, Android.Net.Uri.Parse(TBNLiveStream));
+                
                 var focusResult = audioManager.RequestAudioFocus(this, Stream.Music, AudioFocus.Gain);
                 if (focusResult != AudioFocusRequest.Granted)
                 {
@@ -215,10 +217,7 @@ namespace TBNMobile.Droid.DependencyServices
         /// </summary>
         private void ReleaseWifiLock()
         {
-            if (wifiLock == null)
-                return;
-
-            wifiLock.Release();
+            wifiLock?.Release();
             wifiLock = null;
         }
 
@@ -228,11 +227,8 @@ namespace TBNMobile.Droid.DependencyServices
         public override void OnDestroy()
         {
             base.OnDestroy();
-            if (player != null)
-            {
-                player.Release();
-                player = null;
-            }
+            player?.Release();
+            player = null;
         }
 
         /// <summary>
@@ -274,39 +270,38 @@ namespace TBNMobile.Droid.DependencyServices
 
             }
         }
-
-        internal void Start(string URL)
-        {
-            DataSource = URL;
-            var intent = new Intent(StreamingBackgroundService.ActionPlay);
-            StartService(intent);
-        }
     }
 
 
-    class AndroidAudioPlayer : IAudioPlayer
+    internal class AndroidAudioPlayer : IAudioPlayer
     {
-        public StreamingBackgroundService StreamingService { get; private set; }
 
         public void Init()
         {
-           StreamingService = new StreamingBackgroundService();
+            // Noop in Android
+        }
+
+        public void PlayStreamingAudio()
+        {
+            var intent = new Intent(StreamingBackgroundService.ActionPlay);
+            intent.SetPackage(Application.Context.PackageName);
+            Application.Context.StartService(intent);
         }
 
         public void PauseStreamingAudio()
         {
-            
+            var intent = new Intent(StreamingBackgroundService.ActionPause);
+            intent.SetPackage(Application.Context.PackageName);
+            Application.Context.StartService(intent);
         }
 
-        public void PlayStreamingAudio(string URL)
-        {
-            StreamingService.Start(URL);
-
-        }
+ 
 
         public void StopStreamingAudio()
         {
-            throw new NotImplementedException();
+            var intent = new Intent(StreamingBackgroundService.ActionStop);
+            intent.SetPackage(Application.Context.PackageName);
+            Application.Context.StartService(intent);
         }
     }
 }

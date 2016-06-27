@@ -10,10 +10,7 @@ namespace TBNMobile.UserInterface
 {
 	public partial class LiveStreamPage : ContentPage
 	{
-        public string TBNLiveStream { get { return "http://ice5.securenetsystems.net/THEBN";  } }
-
-
-        public string MainText
+	    public string MainText
         {
             get { return "Live Stream here"; }
         }
@@ -24,14 +21,11 @@ namespace TBNMobile.UserInterface
 			InitializeComponent ();
             BindingContext = this;
             AudioPlayer = DependencyService.Get<IAudioPlayer>();
-            AudioPlayer.Init();
+            //AudioPlayer.Init();
 
-            btnStartStreaming.Clicked += BtnStartStreaming_Clicked;
-        }
-
-        private void BtnStartStreaming_Clicked(object sender, EventArgs e)
-        {
-            AudioPlayer.PlayStreamingAudio(TBNLiveStream);
+            btnStartStreaming.Clicked += (sender, args) => AudioPlayer.PlayStreamingAudio();
+            btnPauseStreaming.Clicked += (sender, args) => AudioPlayer.PauseStreamingAudio();
+            btnStopStreaming.Clicked  += (sender, args) => AudioPlayer.StopStreamingAudio();
         }
     }
 }

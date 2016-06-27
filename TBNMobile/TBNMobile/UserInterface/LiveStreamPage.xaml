@@ -6,5 +6,7 @@
              Icon="live.png">
   <StackLayout Orientation="Vertical" VerticalOptions="Center">
     <Button Text="Start Streaming" x:Name="btnStartStreaming"/>
+    <Button Text="Pause Streaming" x:Name="btnPauseStreaming"/>
+    <Button Text="Stop Streaming" x:Name="btnStopStreaming"/>
   </StackLayout>
 </ContentPage>
