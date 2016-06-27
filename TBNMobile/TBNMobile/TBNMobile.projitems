@@ -10,7 +10,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DependencyServices\IAudioPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\MasterPageItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SocialMediaItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\LiveStreamPage.xaml.cs">
       <DependentUpon>LiveStreamPage.xaml</DependentUpon>
       <SubType>Code</SubType>
