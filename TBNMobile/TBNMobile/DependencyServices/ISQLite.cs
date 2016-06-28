@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite.Net;
+﻿using SQLite.Net;
 
 namespace TBNMobile.DependencyServices
 {

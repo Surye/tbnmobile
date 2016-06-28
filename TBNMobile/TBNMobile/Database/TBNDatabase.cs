@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using SQLite.Net;
 using TBNMobile.Database.Models;
 using TBNMobile.DependencyServices;

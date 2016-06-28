@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TBNMobile.UserInterface.Models
+﻿namespace TBNMobile.UserInterface.Models
 {
     class SocialMediaItem
     {

@@ -1,22 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
 using TBNMobile.DependencyServices;
 using TBNMobile.Droid.DependencyServices;
 using Android.Media;
 using Android.Net.Wifi;
 using Android.Net;
-using Java.Util.Logging;
-using TBNMobile.UserInterface;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AndroidAudioPlayer))]
 namespace TBNMobile.Droid.DependencyServices
