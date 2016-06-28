@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TBNMobile.Models;
+using TBNMobile.UserInterface.Models;
 using Xamarin.Forms;
 
 namespace TBNMobile.UserInterface

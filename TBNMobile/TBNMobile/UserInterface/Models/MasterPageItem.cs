@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TBNMobile.Models
+namespace TBNMobile.UserInterface.Models
 {
-    class SocialMediaItem
+    class MasterPageItem
     {
         public string IconSource { get; internal set; }
-        public string URL { get; internal set; }
+        public Type TargetType { get; internal set; }
         public string Title { get; internal set; }
     }
 }

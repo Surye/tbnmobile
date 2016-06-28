@@ -11,8 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DependencyServices\IAudioPlayer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\MasterPageItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\SocialMediaItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DependencyServices\ISQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\LiveStreamPage.xaml.cs">
       <DependentUpon>LiveStreamPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -25,6 +24,8 @@
       <DependentUpon>MasterPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\Models\MasterPageItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\Models\SocialMediaItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
