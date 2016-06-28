@@ -5,11 +5,8 @@ namespace TBNMobile.UserInterface
 {
 	public partial class LiveStreamPage : ContentPage
 	{
-	    public string MainText
-        {
-            get { return "Live Stream here"; }
-        }
-        public IAudioPlayer AudioPlayer { get; private set; }
+	    public string MainText => "Live Stream here";
+	    public IAudioPlayer AudioPlayer { get; private set; }
 	    private const string TBNLiveStream = "http://ice5.securenetsystems.net/THEBN";
 
 	    public LiveStreamPage ()

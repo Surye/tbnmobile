@@ -16,12 +16,10 @@ namespace TBNMobile.UserInterface
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MasterPageItem;
-            if (item != null)
-            {
-                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
-                masterPage.MainMenu.SelectedItem = null;
-                IsPresented = false;
-            }
+            if (item == null) return;
+            Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+            masterPage.MainMenu.SelectedItem = null;
+            IsPresented = false;
         }
     }
 }
