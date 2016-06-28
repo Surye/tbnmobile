@@ -5,8 +5,11 @@
              Title="Live Streaming"
              Icon="live.png">
   <StackLayout Orientation="Vertical" VerticalOptions="Center">
-    <Button Text="Start Streaming" x:Name="btnStartStreaming"/>
-    <Button Text="Pause Streaming" x:Name="btnPauseStreaming"/>
-    <Button Text="Stop Streaming" x:Name="btnStopStreaming"/>
+    <Image Source="live_logo.png"/>
+     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+      <Image Source="play.png" HeightRequest="100" WidthRequest="100" x:Name="btnStartStreaming"/>
+      <Image Source="pause.png" HeightRequest="100" WidthRequest="100" x:Name="btnPauseStreaming"/>
+      <Image Source="stop.png" HeightRequest="100" WidthRequest="100"  x:Name="btnStopStreaming"/>
+    </StackLayout>
   </StackLayout>
 </ContentPage>

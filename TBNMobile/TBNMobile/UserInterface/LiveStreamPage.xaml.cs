@@ -15,17 +15,29 @@ namespace TBNMobile.UserInterface
             get { return "Live Stream here"; }
         }
         public IAudioPlayer AudioPlayer { get; private set; }
+	    private const string TBNLiveStream = "http://ice5.securenetsystems.net/THEBN";
 
-        public LiveStreamPage ()
+	    public LiveStreamPage ()
 		{
 			InitializeComponent ();
             BindingContext = this;
             AudioPlayer = DependencyService.Get<IAudioPlayer>();
-            //AudioPlayer.Init();
 
-            btnStartStreaming.Clicked += (sender, args) => AudioPlayer.PlayStreamingAudio();
-            btnPauseStreaming.Clicked += (sender, args) => AudioPlayer.PauseStreamingAudio();
-            btnStopStreaming.Clicked  += (sender, args) => AudioPlayer.StopStreamingAudio();
+	        btnStartStreaming.GestureRecognizers.Add(new TapGestureRecognizer
+	        {
+	            Command = new Command(() => AudioPlayer.PlayStreamingAudio(TBNLiveStream, "Live Radio")),
+                NumberOfTapsRequired = 1,
+	        });
+            btnPauseStreaming.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => AudioPlayer.PauseStreamingAudio()),
+                NumberOfTapsRequired = 1,
+            });
+            btnStopStreaming.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => AudioPlayer.StopStreamingAudio()),
+                NumberOfTapsRequired = 1,
+            });
         }
     }
 }

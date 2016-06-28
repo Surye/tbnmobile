@@ -16,6 +16,7 @@ using Android.Media;
 using Android.Net.Wifi;
 using Android.Net;
 using Java.Util.Logging;
+using TBNMobile.UserInterface;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AndroidAudioPlayer))]
 namespace TBNMobile.Droid.DependencyServices
@@ -29,11 +30,7 @@ namespace TBNMobile.Droid.DependencyServices
         public const string ActionPlay = "net.datamachine.surye.tbnmobile.action.PLAY";
         public const string ActionPause = "net.datamachine.surye.tbnmobile.PAUSE";
         public const string ActionStop = "net.datamachine.surye.tbnmobile.STOP";
-
-        // Live Stream URL
-        public const string TBNLiveStream = "http://ice5.securenetsystems.net/THEBN";
-
-
+        
         private MediaPlayer player;
         private AudioManager audioManager;
         private WifiManager wifiManager;
@@ -41,7 +38,10 @@ namespace TBNMobile.Droid.DependencyServices
         private bool paused;
 
         private const int NotificationId = 1;
-        
+
+        public string MediaSource { get; private set; }
+        public string MediaTitle { get; private set; }
+
         /// <summary>
         /// On create simply detect some of our managers
         /// </summary>
@@ -65,6 +65,8 @@ namespace TBNMobile.Droid.DependencyServices
 
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
+            MediaSource = intent.Extras?.GetString("uri");
+            MediaTitle = intent.Extras?.GetString("title");
 
             switch (intent.Action)
             {
@@ -117,7 +119,7 @@ namespace TBNMobile.Droid.DependencyServices
             // Instantiate the builder and set notification elements:
             var builder = new Notification.Builder(this)
                 .SetContentTitle("The Brewing Network")
-                .SetContentText("Live stream started!")
+                .SetContentText(MediaTitle)
                 .SetSmallIcon(Resource.Drawable.hopgrenade);
 
             // Build the notification:
@@ -153,7 +155,7 @@ namespace TBNMobile.Droid.DependencyServices
 
             try
             {
-                await player.SetDataSourceAsync(ApplicationContext, Android.Net.Uri.Parse(TBNLiveStream));
+                await player.SetDataSourceAsync(ApplicationContext, Android.Net.Uri.Parse(MediaSource));
                 
                 var focusResult = audioManager.RequestAudioFocus(this, Stream.Music, AudioFocus.Gain);
                 if (focusResult != AudioFocusRequest.Granted)
@@ -281,9 +283,14 @@ namespace TBNMobile.Droid.DependencyServices
             // Noop in Android
         }
 
-        public void PlayStreamingAudio()
+        public void PlayStreamingAudio(string uri, string title)
         {
+            var valuesForActivity = new Bundle();
+            valuesForActivity.PutString("uri", uri);
+            valuesForActivity.PutString("title", title);
+
             var intent = new Intent(StreamingBackgroundService.ActionPlay);
+            intent.PutExtras(valuesForActivity);
             intent.SetPackage(Application.Context.PackageName);
             Application.Context.StartService(intent);
         }
