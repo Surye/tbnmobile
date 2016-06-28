@@ -10,12 +10,9 @@ namespace TBNMobile.UserInterface
 {
 	public partial class SettingsPage : ContentPage
 	{
-        public string MainText
-        {
-            get { return "Settings Page here"; }
-        }
+        public string MainText => "Settings Page here";
 
-        public SettingsPage ()
+	    public SettingsPage ()
 		{
 			InitializeComponent ();
             BindingContext = this;

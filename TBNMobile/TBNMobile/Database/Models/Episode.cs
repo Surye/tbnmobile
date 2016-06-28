@@ -7,7 +7,7 @@ namespace TBNMobile.Database.Models
     class Episode
     {
         [PrimaryKey]
-        public string Guid { get; set; }
+        public string ID { get; set; }
 
         public string Title { get; set; }
         public string Subtitle { get; set; }
@@ -26,6 +26,10 @@ namespace TBNMobile.Database.Models
         public int Size { get; set; }
 
         public int Duration { get; set; }
+
+        // Local State
+        public int Position { get; set; }
+        public bool Downloaded { get; set; }
 
         public bool Played { get; set; }
 

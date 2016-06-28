@@ -10,6 +10,7 @@ namespace TBNMobile.Database.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string ImageName { get; set; }
+        public string RssFeed { get; set; }
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Episode> Episodes { get; set; }
