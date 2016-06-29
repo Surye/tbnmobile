@@ -4,7 +4,7 @@ using SQLiteNetExtensions.Attributes;
 
 namespace TBNMobile.Database.Models
 {
-    class Show
+    public class Show
     {
         [AutoIncrement, PrimaryKey]
         public int ID { get; set; }

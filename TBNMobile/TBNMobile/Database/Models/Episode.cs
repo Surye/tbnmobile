@@ -4,7 +4,7 @@ using SQLiteNetExtensions.Attributes;
 
 namespace TBNMobile.Database.Models
 {
-    class Episode
+    public class Episode
     {
         [PrimaryKey]
         public string ID { get; set; }
@@ -28,12 +28,16 @@ namespace TBNMobile.Database.Models
         public int Duration { get; set; }
 
         // Local State
+        [Default(true, 0)]
         public int Position { get; set; }
+
+        [Default(true, false)]
         public bool Downloaded { get; set; }
 
+        [Default(true, false)]
         public bool Played { get; set; }
 
-        public bool LocalName { get; set; }
+        public string LocalName { get; set; }
 
     }
 }

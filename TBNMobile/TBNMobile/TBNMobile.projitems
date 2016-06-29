@@ -10,11 +10,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Database\TBNDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Database\Models\Episode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Database\Models\Show.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\TBNDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DependencyServices\IAudioPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DependencyServices\ISQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Podcast\Feed.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\LiveStreamPage.xaml.cs">
       <DependentUpon>LiveStreamPage.xaml</DependentUpon>
       <SubType>Code</SubType>

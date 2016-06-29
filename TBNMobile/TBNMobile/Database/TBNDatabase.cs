@@ -8,7 +8,7 @@ namespace TBNMobile.Database
 {
     public class TBNDatabase
     {
-        private SQLiteConnection Conn { get; set; }
+        public SQLiteConnection Conn { get; set; }
 
         public TBNDatabase()
         {
@@ -33,51 +33,38 @@ namespace TBNMobile.Database
                 {
                     Name = "The Session",
                     ImageName = "TheSessionCover.png",
-                    RssFeed = "http://thebrewingnetwork.com/sundayshow_test.xml",
+                    RssFeed = "http://www.thebrewingnetwork.com/sundayshow.xml",
                 },
                 new Show()
                 {
                     Name = "The Sour Hour",
                     ImageName = "TheSourHourCover.png",
-                    RssFeed = "http://www.thebrewingnetwork.com/feed/sour-hour/",
+                    RssFeed = "http://www.thebrewingnetwork.com/sourhour.xml",
                 },
                 new Show()
                 {
                     Name = "Dr. Homebrew",
                     ImageName = "DrHomebrewCover.png",
-                    RssFeed = "http://www.thebrewingnetwork.com/feed/doctor-homebrew/",
+                    RssFeed = "http://www.thebrewingnetwork.com/drhomebrew.xml",
                 },
                 new Show()
                 {
                     Name = "Brew Strong",
                     ImageName = "BrewStrongCover.png",
-                    RssFeed = "http://www.thebrewingnetwork.com/feed/brew-strong/",
-                },
-                new Show()
-                {
-                    Name = "Brewing With Style",
-                    ImageName = "BrewingWithStyleCover.png",
-                    RssFeed = "http://www.thebrewingnetwork.com/feed/bws/",
-                },
-                new Show()
-                {
-                    Name = "Can You Brew It",
-                    ImageName = "CYBICover.png",
-                    RssFeed = "http://www.thebrewingnetwork.com/feed/cybi/",
+                    RssFeed = "http://www.thebrewingnetwork.com/brewstrong.xml",
                 },
                 new Show()
                 {
                     Name = "The Jamil Show",
                     ImageName = "JamilShowCover.png",
-                    RssFeed = "http://www.thebrewingnetwork.com/feed/jamil-show/",
+                    RssFeed = "http://www.thebrewingnetwork.com/jamilshow.xml",
                 },
-//              // No RSS Feed, Defunct Show, maybe just hard code the existing few episodes? Created a hosted XML for them?
-//              new Show()
-//              {
-//                  Name = "The Home Brewed Chef",
-//                  ImageName = "HomeBrewedChefCover.png",
-//                  RssFeed = "http://www.thebrewingnetwork.com/feed/brew-strong/",
-//              },
+                new Show()
+                {
+                    Name = "The Home Brewed Chef",
+                    ImageName = "HomeBrewedChefCover.png",
+                    RssFeed = "http://www.thebrewingnetwork.com/homebrewedchef.xml",
+                },
             });
         }
     }

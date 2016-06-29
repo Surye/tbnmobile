@@ -17,18 +17,15 @@ namespace TBNMobile.UserInterface
 
 	        btnStartStreaming.GestureRecognizers.Add(new TapGestureRecognizer
 	        {
-	            Command = new Command(() => AudioPlayer.PlayStreamingAudio(TBNLiveStream, "Live Radio")),
-                NumberOfTapsRequired = 1,
+	            Command = new Command(() => AudioPlayer.PlayStreamingAudio(TBNLiveStream, "Live Radio"))
 	        });
             btnPauseStreaming.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Command = new Command(() => AudioPlayer.PauseStreamingAudio()),
-                NumberOfTapsRequired = 1,
+                Command = new Command(() => AudioPlayer.PauseStreamingAudio())
             });
             btnStopStreaming.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Command = new Command(() => AudioPlayer.StopStreamingAudio()),
-                NumberOfTapsRequired = 1,
+                Command = new Command(() => AudioPlayer.StopStreamingAudio())
             });
         }
     }
