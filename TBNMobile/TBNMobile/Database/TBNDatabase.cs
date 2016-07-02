@@ -15,14 +15,14 @@ namespace TBNMobile.Database
             Conn = DependencyService.Get<ISQLite>().GetConnection();
 
             // For Debugging
-            Conn.DropTable<Show>();
-            Conn.DropTable<Episode>();
+            //Conn.DropTable<Show>();
+            //Conn.DropTable<Episode>();
 
             // Create tables if needed.
             Conn.CreateTable<Show>();
             Conn.CreateTable<Episode>();
-
-            SeedShows();
+            
+            //SeedShows();
         }
 
         private void SeedShows()

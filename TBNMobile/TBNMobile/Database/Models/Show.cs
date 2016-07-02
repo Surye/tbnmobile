@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using SQLite.Net.Attributes;
-using SQLiteNetExtensions.Attributes;
+﻿using SQLite.Net.Attributes;
 
 namespace TBNMobile.Database.Models
 {
@@ -11,8 +9,5 @@ namespace TBNMobile.Database.Models
         public string Name { get; set; }
         public string ImageName { get; set; }
         public string RssFeed { get; set; }
-
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Episode> Episodes { get; set; }
     }
 }

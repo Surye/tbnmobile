@@ -25,12 +25,27 @@ namespace TBNMobile.Podcast
         {
             try
             {
+                Console.Out.WriteLine(String.Format("Staring to Import {0}", Show.Name));
+
                 var client = new WebClient();
                 client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
                 var xml = await client.DownloadStringTaskAsync(new Uri(Show.RssFeed, UriKind.Absolute));
-
+                
                 var episodes = ProcessEpisodes(xml);
-                App.Database.Conn.InsertAll(episodes);
+
+                foreach(var episode in episodes)
+                {
+                    try
+                    {
+                        App.Database.Conn.Insert(episode);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Error.WriteLine(ex.Message);
+                    }
+                }
+                
+                Console.Out.WriteLine(String.Format("Finished Importing {0}", Show.Name));
             } catch(Exception ex)
             {
                 Console.Error.WriteLine(ex.Message);
@@ -53,7 +68,7 @@ namespace TBNMobile.Podcast
                     {
                         var episode = new Episode();
 
-                        episode.Show = Show;
+                        episode.ShowId = Show.ID;
                         episode.ID = guid;
                         episode.Title = item["title"].InnerText;
                         episode.Subtitle = item["itunes:subtitle"].InnerText;

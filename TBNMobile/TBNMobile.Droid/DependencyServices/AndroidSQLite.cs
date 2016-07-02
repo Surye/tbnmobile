@@ -1,9 +1,10 @@
 using System.IO;
-using SQLite.Net;
+
 using SQLite.Net.Platform.XamarinAndroid;
 using TBNMobile.DependencyServices;
 using TBNMobile.Droid.DependencyServices;
 using Xamarin.Forms;
+using SQLite.Net;
 
 [assembly: Dependency(typeof(AndroidSQLite))]
 namespace TBNMobile.Droid.DependencyServices

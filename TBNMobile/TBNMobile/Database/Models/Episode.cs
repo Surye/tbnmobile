@@ -1,6 +1,5 @@
 ﻿using System;
 using SQLite.Net.Attributes;
-using SQLiteNetExtensions.Attributes;
 
 namespace TBNMobile.Database.Models
 {
@@ -11,11 +10,8 @@ namespace TBNMobile.Database.Models
 
         public string Title { get; set; }
         public string Subtitle { get; set; }
-
-        [ForeignKey(typeof(Show))]
+        
         public int ShowId { get; set; }
-        [ManyToOne]
-        public Show Show { get; set; }
 
         public string Description { get; set; }
 

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TBNMobile.UserInterface.ShowArchivesPage"
+             Title="Show Archive"
+             Icon="archive.png">
+  <StackLayout Orientation="Vertical">
+    <Picker x:Name="ShowPicker"/>
+    <ListView VerticalOptions="FillAndExpand" 
+              x:Name="EpisodeList" 
+              RowHeight="120"
+              CachingStrategy="RecycleElement">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+              <Image Source="{Binding Show.ImageName}"/>
+              <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
+                  <Label Text="{Binding Episode.Title}" FontSize="Medium"/>
+                  <Label Text="{Binding Episode.Subtitle}" HeightRequest="100" LineBreakMode="TailTruncation"/>
+                  
+                  <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding MBSize}" HorizontalTextAlignment="Start" VerticalOptions="End"/>
+                    <Label Text="{Binding Episode.AirTime, StringFormat='{0:MMMM dd, yyyy}'}" HorizontalTextAlignment="End" VerticalOptions="End"/>
+                  </StackLayout>
+                </StackLayout>
+              </StackLayout>
+              <Image Source="more.png" HorizontalOptions="End" />
+          </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

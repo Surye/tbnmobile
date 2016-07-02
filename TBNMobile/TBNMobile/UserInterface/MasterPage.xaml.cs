@@ -29,7 +29,7 @@ namespace TBNMobile.UserInterface
                 {
                     Title = "Show Archive",
                     IconSource = "archive.png",
-                    TargetType = typeof(ShowArchivePage)
+                    TargetType = typeof(ShowArchivesPage)
                 },
                 new MasterPageItem
                 {

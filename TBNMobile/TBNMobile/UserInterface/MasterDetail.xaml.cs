@@ -17,7 +17,8 @@ namespace TBNMobile.UserInterface
         {
             var item = e.SelectedItem as MasterPageItem;
             if (item == null) return;
-            Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+            var page = Activator.CreateInstance(item.TargetType) as ContentPage;
+            Detail = new NavigationPage(page);
             masterPage.MainMenu.SelectedItem = null;
             IsPresented = false;
         }

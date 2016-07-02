@@ -28,14 +28,15 @@
       <DependentUpon>MasterPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\Models\EpisodeItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\Models\MasterPageItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\Models\SocialMediaItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInterface\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\ShowArchivePage.xaml.cs">
-      <DependentUpon>ShowArchivePage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserInterface\ShowArchivesPage.xaml.cs">
+      <DependentUpon>ShowArchivesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -49,7 +50,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UserInterface\ShowArchivePage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UserInterface\ShowArchivesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

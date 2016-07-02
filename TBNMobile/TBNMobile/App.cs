@@ -14,7 +14,7 @@ namespace TBNMobile
             // Initalize Database
             Database = new TBNDatabase();
 
-            RefreshRSS();
+            //RefreshRSS();
 
             var mainPage = new UserInterface.MasterDetail();
             // The root page of your application
